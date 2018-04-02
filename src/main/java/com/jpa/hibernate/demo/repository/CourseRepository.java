@@ -52,10 +52,16 @@ public class CourseRepository {
 
         Course course2 = new Course("Angular 2 in Basic Steps");
         em.persist(course2);
+
+        course2.setName("Angular 5 in Basic Steps - Updated");
+
         em.flush();     // push changes to db
 
-        em.detach(course2);     //changes are no longer tracked by Entity Manager
-        course2.setName("Angular 5 in Basic Steps - Updated");
+        course1.setName("Web Services in Basic Steps - Updated");
+
+        em.refresh(course1); // will query again to database
+
+        System.out.println("Data in Course 1: " + course1.getName()); // Data in Course 1: Web Services in Basic Steps
 
 
         em.clear();     // wll clear every thing which is tracked by Entity Manager
