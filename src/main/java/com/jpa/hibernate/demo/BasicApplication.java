@@ -37,5 +37,7 @@ public class BasicApplication implements CommandLineRunner {
 
         logger.info("New Course - > {}", saveCourse);
 
+        repository.playWithEntityManager();
+
     }
 }
