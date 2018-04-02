@@ -7,36 +7,36 @@ import javax.persistence.Id;
 @Entity
 public class Course {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	private String name;
+    private String name;
 
-	protected Course() {
-	}
+    protected Course() {
+    }
 
-	public Course(String name) {
-		this.name = name;
-	}
+    public Course(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return String.format("Course[%s]", name);
-	}
-	
-	
-	
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Course[%s]", name);
+    }
+
+
 }
