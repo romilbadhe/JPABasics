@@ -16,6 +16,8 @@ public class Review {
 
     private String description;
 
+
+    // Default Fetch Type is Eager
     @ManyToOne
     private Course course;
 

@@ -16,6 +16,7 @@ public class Course {
 
     private String name;
 
+    // Always Lazy Fetching
     @OneToMany(mappedBy = "course")
     private List<Review> reviews = new ArrayList<>();
 
