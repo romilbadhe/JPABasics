@@ -1,5 +1,6 @@
 package com.jpa.hibernate.demo.repository;
 
+import com.jpa.hibernate.demo.entity.Course;
 import com.jpa.hibernate.demo.entity.Passport;
 import com.jpa.hibernate.demo.entity.Student;
 import org.slf4j.Logger;
@@ -51,5 +52,14 @@ public class StudentRepository {
         student.setPassport(passport);
         em.persist(passport);
         em.persist(student);
+    }
+
+    public void insertStudentAndCourse(Student student, Course course) {
+
+        student.addCourses(course);
+        course.addStudents(student);
+
+        em.persist(student);
+        em.persist(course);
     }
 }

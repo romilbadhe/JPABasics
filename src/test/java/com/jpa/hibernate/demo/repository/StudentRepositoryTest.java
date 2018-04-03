@@ -50,4 +50,16 @@ public class StudentRepositoryTest {
 
     }
 
+    @Test
+    @Transactional
+    public void retrieveStudentAndCourses() {
+
+        logger.info("retrieveStudentAndCourses test is running");
+
+        Student student = em.find(Student.class, 20001L);
+        logger.info("Student - {}", student);
+        logger.info("Courses - {}", student.getCourses());
+
+    }
+
 }
