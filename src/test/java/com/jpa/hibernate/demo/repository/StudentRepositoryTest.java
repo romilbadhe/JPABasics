@@ -1,5 +1,6 @@
 package com.jpa.hibernate.demo.repository;
 
+import com.jpa.hibernate.demo.entity.Passport;
 import com.jpa.hibernate.demo.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +35,18 @@ public class StudentRepositoryTest {
         Student student = em.find(Student.class, 20001L);
         logger.info("student -> {}", student);
         logger.info("passport -> {}", student.getPassport());
+
+    }
+
+
+    @Test
+    @Transactional
+    public void retrievePassportAndAssociatedStudent() {
+
+        logger.info("retrievePassportAndAssociatedStudent test is running");
+        Passport passport = em.find(Passport.class, 40001L);
+        logger.info("passport -> {}", passport);
+        logger.info("student -> {}", passport.getStudent());
 
     }
 
