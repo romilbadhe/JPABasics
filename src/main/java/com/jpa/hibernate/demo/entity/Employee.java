@@ -3,8 +3,7 @@ package com.jpa.hibernate.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Default Strategy
-@DiscriminatorColumn(name = "EmployeeType")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Employee {
 
     @Id
