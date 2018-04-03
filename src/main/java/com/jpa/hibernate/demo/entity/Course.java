@@ -1,17 +1,28 @@
 package com.jpa.hibernate.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "CourseDetails")      //Table name
 public class Course {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    @Column(name = "fullname", nullable = false)
     private String name;
+
+    @UpdateTimestamp        // Hibernate annotation
+    private LocalDateTime lastUpdatedDate;
+
+    @CreationTimestamp      // Hibernate annotation
+    private LocalDateTime createdDate;
+
 
     protected Course() {
     }

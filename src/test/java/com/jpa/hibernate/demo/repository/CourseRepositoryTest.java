@@ -69,6 +69,20 @@ public class CourseRepositoryTest {
 
     @Test
     @DirtiesContext
+    public void checkForFullNameNullable() {
+
+        logger.info("checkForFullNameNullable is running");
+        Course course = repository.findById(1L);
+        course.setName(null);
+        assertNull(null, course.getName());
+        repository.save(course);
+
+
+    }
+
+
+    @Test
+    @DirtiesContext
     public void playWithEntityManager() {
         repository.playWithEntityManager();
     }

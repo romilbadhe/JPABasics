@@ -66,8 +66,6 @@ public class CourseRepository {
 
         em.clear();     // wll clear every thing which is tracked by Entity Manager
 
-
-
     }
 
 }
