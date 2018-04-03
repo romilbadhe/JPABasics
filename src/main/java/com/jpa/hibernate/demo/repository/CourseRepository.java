@@ -1,6 +1,7 @@
 package com.jpa.hibernate.demo.repository;
 
 import com.jpa.hibernate.demo.entity.Course;
+import com.jpa.hibernate.demo.entity.Review;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 /**
  * @author Romil Badhe
@@ -41,33 +43,41 @@ public class CourseRepository {
         em.remove(course);
     }
 
-    public void playWithEntityManager() {
+    public void addReviewsForCourse() {
 
-        logger.info("playWithEntityManager - start");
+        // get the course 10003
+        Course course = findById(10003L);
+        logger.info("course.getReviews ->  {}", course.getReviews());
 
-        Course course1 = new Course("Web Services in Basic Steps");
-        em.persist(course1);
-        em.flush();     // push changes to db
+        // add 2 reviews
+        Review review1 = new Review("5", "Great hands on stuff");
+        Review review2 = new Review("5", "Good going");
 
+        // setting the relationships
+        course.addReview(review1);
+        review1.setCourse(course);
 
-        Course course2 = new Course("Angular 2 in Basic Steps");
-        em.persist(course2);
+        // setting the relationships
+        course.addReview(review2);
+        review2.setCourse(course);
 
-        course2.setName("Angular 5 in Basic Steps - Updated");
-
-        em.flush();     // push changes to db
-
-        course1.setName("Web Services in Basic Steps - Updated");
-
-        em.refresh(course1); // will query again to database
-
-        System.out.println("Data in Course 1: " + course1.getName()); // Data in Course 1: Web Services in Basic Steps
-
-
-        em.clear();     // wll clear every thing which is tracked by Entity Manager
-
-
-
+        // save it to database
+        em.persist(review1);
+        em.persist(review2);
     }
 
+
+    public void addReviewsForCourseGeneric(Long courseId, List<Review> reviewList) {
+
+        // get the course
+        Course course = findById(courseId);
+        logger.info("course.getReviews ->  {}", course.getReviews());
+
+        // add reviews
+        for (Review review : reviewList) {
+            course.addReview(review);
+            review.setCourse(course);
+            em.persist(review);     // save to db
+        }
+    }
 }

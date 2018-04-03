@@ -67,11 +67,11 @@ public class CourseRepositoryTest {
     }
 
 
-    @Test
+   /* @Test
     @DirtiesContext
     public void playWithEntityManager() {
         repository.playWithEntityManager();
     }
-
+*/
 
 }
