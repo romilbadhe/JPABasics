@@ -1,6 +1,5 @@
 package com.jpa.hibernate.demo.repository;
 
-import com.jpa.hibernate.demo.entity.Course;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class CourseRepository {
     EntityManager em;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public Course findById(Long id) {
+   /* public Course findById(Long id) {
         return em.find(Course.class, id);
     }
 
@@ -69,5 +68,5 @@ public class CourseRepository {
 
 
     }
-
+*/
 }

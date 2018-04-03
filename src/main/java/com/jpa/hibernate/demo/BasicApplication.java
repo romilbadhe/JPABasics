@@ -1,7 +1,6 @@
 package com.jpa.hibernate.demo;
 
-import com.jpa.hibernate.demo.entity.Course;
-import com.jpa.hibernate.demo.repository.CourseRepository;
+import com.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class BasicApplication implements CommandLineRunner {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private CourseRepository repository;
+    private StudentRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(BasicApplication.class, args);
@@ -28,16 +27,6 @@ public class BasicApplication implements CommandLineRunner {
     @Override
     public void run(String... arg0) throws Exception {
 
-        Course course = repository.findById(10001L);
-
-        logger.info("Course 10001 -> {}", course);
-
-
-        Course saveCourse = repository.save(new Course("JUnit in Basic Steps"));
-
-        logger.info("New Course - > {}", saveCourse);
-
-        repository.playWithEntityManager();
-
+        studentRepository.saveStudentWithPassport();
     }
 }
