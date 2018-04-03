@@ -1,9 +1,11 @@
 package com.jpa.hibernate.demo.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public abstract class Employee {
 
     @Id
