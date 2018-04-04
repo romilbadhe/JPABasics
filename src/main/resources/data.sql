@@ -1,7 +1,7 @@
 
-insert into passport(id, number) values(40001,'EA12123');
+insert into passport(id, number) values(40001,'EA12343');
 insert into passport(id, number) values(40002,'RE25555');
-insert into passport(id, number) values(40003,'LA00015');
+insert into passport(id, number) values(40003,'LA12345');
 
 insert into student(id, name, passport_id) values(20001,'John', 40001);
 insert into student(id, name, passport_id) values(20002,'Richard', 40002);

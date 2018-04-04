@@ -1,7 +1,5 @@
 package com.jpa.hibernate.demo;
 
-import com.jpa.hibernate.demo.entity.Course;
-import com.jpa.hibernate.demo.entity.Student;
 import com.jpa.hibernate.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,11 +26,6 @@ public class BasicApplication implements CommandLineRunner {
 
     @Override
     public void run(String... arg0) throws Exception {
-
-        Student jack = new Student("Jack");
-        Course xml = new Course("XML in Basic steps");
-
-        studentRepository.insertStudentAndCourse(jack, xml);
 
     }
 }
